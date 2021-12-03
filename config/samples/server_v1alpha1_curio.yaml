@@ -1,0 +1,6 @@
+apiVersion: server.psc.bb.com.br/v1alpha1
+kind: Curio
+metadata:
+  name: curio-sample
+spec:
+  # Add fields here

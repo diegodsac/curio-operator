@@ -1,0 +1,86 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - client.psc.bb.com.br
+  resources:
+  - curios
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - client.psc.bb.com.br
+  resources:
+  - curios/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - client.psc.bb.com.br
+  resources:
+  - curios/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - server.psc.bb.com.br
+  resources:
+  - curios
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - server.psc.bb.com.br
+  resources:
+  - curios/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - server.psc.bb.com.br
+  resources:
+  - curios/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - sidecarinjector.psc.bb.com.br
+  resources:
+  - curios
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - sidecarinjector.psc.bb.com.br
+  resources:
+  - curios/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - sidecarinjector.psc.bb.com.br
+  resources:
+  - curios/status
+  verbs:
+  - get
+  - patch
+  - update

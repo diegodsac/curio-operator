@@ -1,0 +1,42 @@
+domain: psc.bb.com.br
+layout:
+- go.kubebuilder.io/v3
+multigroup: true
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: curio-operator
+repo: github.com/diegodsac/curio-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: psc.bb.com.br
+  group: server
+  kind: Curio
+  path: github.com/diegodsac/curio-operator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: psc.bb.com.br
+  group: client
+  kind: Curio
+  path: github.com/diegodsac/curio-operator/apis/client/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: psc.bb.com.br
+  group: sidecarinjector
+  kind: Curio
+  path: github.com/diegodsac/curio-operator/apis/sidecarinjector/v1beta1
+  version: v1beta1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
+version: "3"

@@ -1,0 +1,56 @@
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-sidecarinjector-psc-bb-com-br-v1beta1-curio
+  failurePolicy: Fail
+  name: mcurio.kb.io
+  rules:
+  - apiGroups:
+    - sidecarinjector.psc.bb.com.br
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - curios
+  sideEffects: None
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-sidecarinjector-psc-bb-com-br-v1beta1-curio
+  failurePolicy: Fail
+  name: vcurio.kb.io
+  rules:
+  - apiGroups:
+    - sidecarinjector.psc.bb.com.br
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - curios
+  sideEffects: None

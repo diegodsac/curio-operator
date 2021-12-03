@@ -1,0 +1,90 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
+  name: curios.server.psc.bb.com.br
+spec:
+  group: server.psc.bb.com.br
+  names:
+    kind: Curio
+    listKind: CurioList
+    plural: curios
+    singular: curio
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: Curio is the Schema for the curios API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: CurioSpec defines the desired state of Curio
+            properties:
+              CURIO_APLICACAO_HOST:
+                type: string
+              CURIO_CACHE_CONFIGURACAO_IIB:
+                type: string
+              CURIO_CACHE_CONFIGURACAO_IIB_ID:
+                type: string
+              CURIO_IIB_LOG_LEVEL:
+                type: string
+              CURIO_MODO_DESENVOLVIMENTO:
+                type: string
+              'CURIO_OP_CONSUMIDOR ':
+                type: string
+              CURIO_OP_PROVEDOR:
+                type: string
+              CURIO_SIGLA_APLICACAO:
+                type: string
+              KUMULUZEE_ENV_NAME:
+                type: string
+              KUMULUZEE_LOGS_LOGGERS0_LEVEL:
+                type: string
+              KUMULUZEE_LOGS_LOGGERS0_NAME:
+                type: string
+              NAMESPACE:
+                description: Foo is an example field of Curio. Edit curio_types.go
+                  to remove/update
+                type: string
+              Versao:
+                format: int32
+                type: integer
+            type: object
+          status:
+            description: CurioStatus defines the observed state of Curio
+            properties:
+              Status:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file'
+                type: string
+            required:
+            - Status
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
